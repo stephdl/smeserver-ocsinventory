@@ -284,7 +284,7 @@ Alias /ocs      /usr/share/ocsinventory-reports/ocsreports
   PerlModule Apache::Ocsinventory::Server::Capacities::Download
   PerlModule Apache::Ocsinventory::Server::Capacities::Notify
   # This module guides you through the module creation
-  PerlModule Apache::Ocsinventory::Server::Capacities::Example
+#  PerlModule Apache::Ocsinventory::Server::Capacities::Example
   # This module adds some rules to filter some request sent to ocs server in the prolog and inventory stages
   PerlModule Apache::Ocsinventory::Server::Capacities::Filter
   
