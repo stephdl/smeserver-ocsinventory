@@ -1,0 +1,4 @@
+#! /bin/sh
+if [[ -z /var/lib/mysql/ocsweb/accesslog.frm  ]];then
+/usr/bin/mysql { $ocs{DbName} } < /usr/share/ocsinventory-reports/ocsreports/files/ocsbase_new.sql
+fi
