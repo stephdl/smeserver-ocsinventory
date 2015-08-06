@@ -1,0 +1,5 @@
+#! /bin/sh
+MYSQLDBNAME=$(/sbin/e-smith/config getprop ocs DbName)
+if [[ ! -f /var/lib/mysql/ocsweb/accesslog.frm  ]];then
+/usr/bin/mysql $MYSQLDBNAME < /usr/share/ocsinventory-reports/ocsreports/files/ocsbase_new.sql
+fi

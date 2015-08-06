@@ -1,4 +1,9 @@
-$_SESSION["SERVEUR_SQL"]="localhost";
-$_SESSION["COMPTE_BASE"]="{ $ocs{'DbUser'} }";
-$_SESSION["PSWD_BASE"]="{ $ocs{'DbPassword'} }";
+#
+# 10base
+#
 
+define("DB_NAME", "{ $ocs{'DbName'} }");
+define("SERVER_READ", "localhost");
+define("SERVER_WRITE", "localhost");
+define("COMPTE_BASE", "{ $ocs{'DbUser'} }");
+define("PSWD_BASE", '{ $ocs{'DbPassword'} }');

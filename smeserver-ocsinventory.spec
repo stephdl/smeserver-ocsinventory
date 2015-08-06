@@ -5,8 +5,8 @@
 Summary: Open Computer and Software Inventory Next Generation (SME Server integration)
 %define name smeserver-ocsinventory
 Name: %{name}
-%define version 0.1
-%define release 14
+%define version 0.3
+%define release 1
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -17,7 +17,7 @@ URL: http://sme.firewall-services.com
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildArchitectures: noarch
 BuildRequires: e-smith-devtools
-Requires: e-smith-release >= 7.0
+Requires: e-smith-release >= 9.0
 Requires: ocsinventory-server
 Requires: ocsinventory-reports
 
@@ -34,6 +34,9 @@ such as switch, router, network printer and unattended devices.
 OCS Inventory NG includes package deployment feature on client computers
 
 %changelog
+* Thu Aug 06 2015 stephane de Labrusse <stephdl@de-labrusse.fr> 0.3-1.sme
+- Initial release to sme9
+
 * Sun Dec 15 2013 JP Pialasse <tests@pialasse.com> 0.1-14.sme
 - Can't exec "rpm" fix 
 

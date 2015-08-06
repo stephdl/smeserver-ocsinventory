@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Fixing XML::SAX ParserDetails.ini
-touch /usr/lib/perl5/vendor_perl/*/XML/SAX/ParserDetails.ini
-chmod 444 /usr/lib/perl5/vendor_perl/*/XML/SAX/ParserDetails.ini
+touch /usr/share/perl5/XML/SAX/ParserDetails.ini
+chmod 444 /usr/share/perl5/XML/SAX/ParserDetails.ini
 perl -MXML::SAX -e "XML::SAX->add_parser(q(XML::SAX::PurePerl))->save_parsers()"
 
 DOMAIN=$(/sbin/e-smith/db configuration get DomainName)
