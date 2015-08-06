@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Fixing XML::SAX ParserDetails.ini
+touch /usr/lib/perl5/vendor_perl/*/XML/SAX/ParserDetails.ini
+chmod 444 /usr/lib/perl5/vendor_perl/*/XML/SAX/ParserDetails.ini
+perl -MXML::SAX -e "XML::SAX->add_parser(q(XML::SAX::PurePerl))->save_parsers()"
+
+DOMAIN=$(/sbin/e-smith/db configuration get DomainName)
+SRVNAME=$(/sbin/e-smith/db configuration get SystemName)
+# Copying SME's certificate into cacert.pem if the file do not exist
+# This file is used by deployment function
+
+if [ ! -e /home/e-smith/ssl.crt/cacert.pem ]; then
+  cp /home/e-smith/ssl.crt/$SRVNAME.$DOMAIN.crt /home/e-smith/ssl.crt/cacert.pem
+else
+  CACERTMD5=$(md5sum /home/e-smith/ssl.crt/cacert.pem)
+  SMECERTMD5=$(md5sum /home/e-smith/ssl.crt/$SRVNAME.$DOMAIN.crt)
+  if [ "$CACERTMD5" != "$SMECERTMD5" ]; then
+    # Certificate has changed, update cacert.pem
+    cat /home/e-smith/ssl.crt/$SRVNAME.$DOMAIN.crt > /home/e-smith/ssl.crt/cacert.pem
+  fi
+fi
+

@@ -1,0 +1,35 @@
+{
+    my $rec = $DB->get('ocs')
+        || $DB->new_record('ocs', {type => 'service'});
+
+    my $pw = $rec->prop('DbPassword');
+
+    return "" if $pw;
+    if (not $pw or length($pw) < 25)
+    {
+      use MIME::Base64 qw(encode_base64);
+
+      $pw = "not set due to error";
+
+      if ( open( RANDOM, "/dev/urandom" ) )
+      {
+          my $buf;
+          if ( read( RANDOM, $buf, 25 ) != 25 )
+          {
+              warn("Short read from /dev/random: $!");
+          }
+          else
+          {
+              $pw = encode_base64($buf);
+              chomp $pw;
+          }
+          close RANDOM;
+      }
+      else
+      {
+          warn "Could not open /dev/urandom: $!";
+      }
+
+      $rec->set_prop('DbPassword', $pw);
+    }
+}

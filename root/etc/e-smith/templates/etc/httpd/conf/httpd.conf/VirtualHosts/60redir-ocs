@@ -1,0 +1,5 @@
+{
+    if ($port ne "443"){
+		$OUT = '    RewriteRule ^/ocs(/.*|$)    https://%{HTTP_HOST}/ocs$1 [L,R]';
+    }
+}

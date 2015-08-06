@@ -1,0 +1,9 @@
+
+# OCS Inventory NG Certificate
+{
+    if (-s '/home/e-smith/ssl.crt/cacert.pem')
+      { $OUT = "SSLCACertificateFile /home/e-smith/ssl.crt/cacert.pem"; }
+    else
+      { $OUT = "# File /home/e-smith/ssl.crt/cacert.pem not present, deployment will not be possible"; }
+}
+

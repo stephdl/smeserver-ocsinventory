@@ -1,0 +1,4 @@
+$_SESSION["SERVEUR_SQL"]="localhost";
+$_SESSION["COMPTE_BASE"]="{ $ocs{'DbUser'} }";
+$_SESSION["PSWD_BASE"]="{ $ocs{'DbPassword'} }";
+
