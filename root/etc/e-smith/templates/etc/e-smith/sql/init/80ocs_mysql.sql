@@ -56,3 +56,7 @@ REPLACE INTO db (
                    'N', 'Y', 'Y');
 
 FLUSH PRIVILEGES;
+
+/usr/bin/mysql { $ocs{DbName} } < /usr/share/ocsinventory-reports/ocsreports/files/ocsbase_new.sql
+
+
