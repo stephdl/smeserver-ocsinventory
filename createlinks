@@ -13,8 +13,8 @@ templates2events("/etc/e-smith/sql/init/80ocs_mysql.sql", $event);
 event_link("ocs-conf", $event, "10");
 event_link("ocs-conf", "domain-modify", "10");
 event_link("ocs-conf", "bootstrap-console-save", "10");
-event_link("ocs-load-mysqldump-conf", $event, "20");
-event_link("ocs-load-mysqldump-conf", "bootstrap-console-save", "20");
+event_link("ocs-load-mysqldump-conf", $event, "91");
+event_link("ocs-load-mysqldump-conf", "bootstrap-console-save", "91");
 
 safe_symlink("start", "root/etc/e-smith/events/$event/services2adjust/mysql.init");
 safe_symlink("sigusr1", "root/etc/e-smith/events/$event/services2adjust/httpd-e-smith");
